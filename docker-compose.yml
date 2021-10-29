@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+ jupyter:  # you can change this "jupyter" service to whatever you want.
+  container_name: pyspark-workshop
+  build: 
+    context: ./docker-stacks
+  image: pyspark
+  volumes:
+    - "./:/home/jovyan/work/"
+  ports:
+    - "8888:8888"
+  environment:
+    JUPYTER_ENABLE_LAB: "yes"
+    JUPYTER_TOKEN: pyspark
+  working_dir: "/home/jovyan/work/"
+    
+
+
